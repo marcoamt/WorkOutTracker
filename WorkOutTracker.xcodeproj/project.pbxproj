@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		7E2AC99D2320118D00221403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AC99C2320118D00221403 /* AppDelegate.swift */; };
-		7E2AC99F2320118D00221403 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AC99E2320118D00221403 /* ViewController.swift */; };
+		7E2AC99F2320118D00221403 /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AC99E2320118D00221403 /* WorkoutsViewController.swift */; };
 		7E2AC9A22320118D00221403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2AC9A02320118D00221403 /* Main.storyboard */; };
 		7E2AC9A42320118D00221403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E2AC9A32320118D00221403 /* Assets.xcassets */; };
 		7E2AC9A72320118D00221403 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E2AC9A52320118D00221403 /* LaunchScreen.storyboard */; };
 		7E2AC9B22320118D00221403 /* WorkOutTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AC9B12320118D00221403 /* WorkOutTrackerTests.swift */; };
 		7E2AC9BD2320118D00221403 /* WorkOutTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AC9BC2320118D00221403 /* WorkOutTrackerUITests.swift */; };
+		7EB077722320738E00BEA381 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB077712320738E00BEA381 /* AddViewController.swift */; };
+		7EB07774232073A300BEA381 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07773232073A300BEA381 /* HistoryViewController.swift */; };
+		7EB07776232073B500BEA381 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07775232073B500BEA381 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		7E2AC9992320118D00221403 /* WorkOutTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkOutTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E2AC99C2320118D00221403 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7E2AC99E2320118D00221403 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7E2AC99E2320118D00221403 /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
 		7E2AC9A12320118D00221403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E2AC9A32320118D00221403 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E2AC9A62320118D00221403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		7E2AC9B82320118D00221403 /* WorkOutTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkOutTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E2AC9BC2320118D00221403 /* WorkOutTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutTrackerUITests.swift; sourceTree = "<group>"; };
 		7E2AC9BE2320118D00221403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EB077712320738E00BEA381 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		7EB07773232073A300BEA381 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		7EB07775232073B500BEA381 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,8 @@
 		7E2AC99B2320118D00221403 /* WorkOutTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7EB077702320734D00BEA381 /* ViewController */,
 				7E2AC99C2320118D00221403 /* AppDelegate.swift */,
-				7E2AC99E2320118D00221403 /* ViewController.swift */,
 				7E2AC9A02320118D00221403 /* Main.storyboard */,
 				7E2AC9A32320118D00221403 /* Assets.xcassets */,
 				7E2AC9A52320118D00221403 /* LaunchScreen.storyboard */,
@@ -123,6 +129,17 @@
 				7E2AC9BE2320118D00221403 /* Info.plist */,
 			);
 			path = WorkOutTrackerUITests;
+			sourceTree = "<group>";
+		};
+		7EB077702320734D00BEA381 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E2AC99E2320118D00221403 /* WorkoutsViewController.swift */,
+				7EB077712320738E00BEA381 /* AddViewController.swift */,
+				7EB07773232073A300BEA381 /* HistoryViewController.swift */,
+				7EB07775232073B500BEA381 /* MapViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E2AC99F2320118D00221403 /* ViewController.swift in Sources */,
+				7E2AC99F2320118D00221403 /* WorkoutsViewController.swift in Sources */,
 				7E2AC99D2320118D00221403 /* AppDelegate.swift in Sources */,
+				7EB077722320738E00BEA381 /* AddViewController.swift in Sources */,
+				7EB07776232073B500BEA381 /* MapViewController.swift in Sources */,
+				7EB07774232073A300BEA381 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SX374353D5;
 				INFOPLIST_FILE = WorkOutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SX374353D5;
 				INFOPLIST_FILE = WorkOutTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

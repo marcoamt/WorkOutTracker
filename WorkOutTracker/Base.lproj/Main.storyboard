@@ -1,24 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ui-I0-sp5">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Workouts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WorkoutsViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m6I-lt-tZp" userLabel="listWorkOuts">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.75294117647058822" green="0.90196078431372551" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6I-lt-tZp" secondAttribute="bottom" id="GJ8-Dr-SoB"/>
+                            <constraint firstItem="m6I-lt-tZp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tqt-Xh-KDM"/>
+                            <constraint firstItem="m6I-lt-tZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uJ2-YF-7aU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m6I-lt-tZp" secondAttribute="trailing" id="xDl-7P-XzJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Workouts" image="list1x" id="fjb-2f-Ntl"/>
+                    <connections>
+                        <outlet property="listWorkOuts" destination="m6I-lt-tZp" id="RXy-gK-YBE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="NVd-1F-SAt">
+            <objects>
+                <viewController id="Gv6-8k-RGW" customClass="MapViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o7m-ZP-DDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-yT-Gq6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71070843935012817" green="0.91114205121994019" blue="0.52960902452468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y58-yT-Gq6" firstAttribute="leading" secondItem="B11-F5-3nD" secondAttribute="leading" id="Vxr-vC-JA7"/>
+                            <constraint firstItem="B11-F5-3nD" firstAttribute="bottom" secondItem="Y58-yT-Gq6" secondAttribute="bottom" id="Xza-hL-ueT"/>
+                            <constraint firstItem="Y58-yT-Gq6" firstAttribute="top" secondItem="B11-F5-3nD" secondAttribute="top" id="w99-Li-3CX"/>
+                            <constraint firstItem="B11-F5-3nD" firstAttribute="trailing" secondItem="Y58-yT-Gq6" secondAttribute="trailing" id="yOC-qC-bSx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B11-F5-3nD"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map1x" id="ndk-Ik-yU5"/>
+                    <connections>
+                        <outlet property="mapView" destination="Y58-yT-Gq6" id="MJQ-UC-MNn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdG-lp-2ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="23"/>
+        </scene>
+        <!--Add-->
+        <scene sceneID="BpU-RZ-WXs">
+            <objects>
+                <viewController id="g6E-zo-e5B" customClass="AddViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g8S-lk-XfK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPj-vB-GSQ">
+                                <rect key="frame" x="20" y="44" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="106" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-JW-rla">
+                                <rect key="frame" x="120" y="783" width="174" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2p-AN-kqZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addPressed:" destination="g6E-zo-e5B" eventType="touchUpInside" id="XSx-bq-QuT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zny-fh-kKC">
+                                        <rect key="frame" x="136" y="0.0" width="38" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71070843935012817" green="0.91114205121994019" blue="0.52960902452468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="leading" secondItem="q5A-7c-vLC" secondAttribute="leading" constant="20" id="9Pn-N1-AHa"/>
+                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="top" secondItem="q5A-7c-vLC" secondAttribute="top" id="Pix-kJ-td9"/>
+                            <constraint firstItem="q5A-7c-vLC" firstAttribute="bottom" secondItem="k3l-JW-rla" secondAttribute="bottom" id="bSM-bJ-K6A"/>
+                            <constraint firstItem="q5A-7c-vLC" firstAttribute="trailing" secondItem="k3l-JW-rla" secondAttribute="trailing" constant="120" id="lPO-Bs-tZs"/>
+                            <constraint firstItem="q5A-7c-vLC" firstAttribute="trailing" secondItem="RPj-vB-GSQ" secondAttribute="trailing" constant="20" id="pAi-Jm-o19"/>
+                            <constraint firstItem="k3l-JW-rla" firstAttribute="leading" secondItem="q5A-7c-vLC" secondAttribute="leading" constant="120" id="qIN-Zg-aa0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q5A-7c-vLC"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add" image="add1x" id="9WM-fZ-W8i"/>
+                    <connections>
+                        <outlet property="workoutName" destination="RPj-vB-GSQ" id="NZg-Du-q7T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahu-Bb-v2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979.71014492753636" y="691.74107142857144"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="G2p-oJ-N6Q">
+            <objects>
+                <viewController id="bad-Tp-EwZ" customClass="HistoryViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I4z-5F-PAV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.71070843935012817" green="0.91114205121994019" blue="0.52960902452468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="1nA-IS-dcj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" image="history1x" id="luV-Sv-33v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LBO-JK-cZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1777" y="694"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="INa-7K-ooR">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6ui-I0-sp5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AnW-wW-XIS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="rCT-g6-btI"/>
+                        <segue destination="g6E-zo-e5B" kind="relationship" relationship="viewControllers" id="tg6-X5-jpT"/>
+                        <segue destination="Gv6-8k-RGW" kind="relationship" relationship="viewControllers" id="Mda-se-EkY"/>
+                        <segue destination="bad-Tp-EwZ" kind="relationship" relationship="viewControllers" id="Pba-WJ-tFv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzB-XH-uJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add1x" width="18" height="18"/>
+        <image name="history1x" width="18" height="18"/>
+        <image name="list1x" width="18" height="18"/>
+        <image name="map1x" width="18" height="18"/>
+    </resources>
 </document>
