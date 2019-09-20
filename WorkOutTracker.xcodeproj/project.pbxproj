@@ -17,6 +17,8 @@
 		7EB077722320738E00BEA381 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB077712320738E00BEA381 /* AddViewController.swift */; };
 		7EB07774232073A300BEA381 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07773232073A300BEA381 /* HistoryViewController.swift */; };
 		7EB07776232073B500BEA381 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07775232073B500BEA381 /* MapViewController.swift */; };
+		7EFDD50323353402001D05B0 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDD50223353402001D05B0 /* Workout.swift */; };
+		7EFDD5052335345A001D05B0 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDD5042335345A001D05B0 /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		7EB077712320738E00BEA381 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		7EB07773232073A300BEA381 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EB07775232073B500BEA381 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7EFDD50223353402001D05B0 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		7EFDD5042335345A001D05B0 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		7E2AC99B2320118D00221403 /* WorkOutTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7EFDD501233533EA001D05B0 /* Models */,
 				7EB077702320734D00BEA381 /* ViewController */,
 				7E2AC99C2320118D00221403 /* AppDelegate.swift */,
 				7E2AC9A02320118D00221403 /* Main.storyboard */,
@@ -140,6 +145,15 @@
 				7EB07775232073B500BEA381 /* MapViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7EFDD501233533EA001D05B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7EFDD50223353402001D05B0 /* Workout.swift */,
+				7EFDD5042335345A001D05B0 /* Exercise.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +292,8 @@
 				7EB077722320738E00BEA381 /* AddViewController.swift in Sources */,
 				7EB07776232073B500BEA381 /* MapViewController.swift in Sources */,
 				7EB07774232073A300BEA381 /* HistoryViewController.swift in Sources */,
+				7EFDD5052335345A001D05B0 /* Exercise.swift in Sources */,
+				7EFDD50323353402001D05B0 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SX374353D5;
 				INFOPLIST_FILE = WorkOutTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,6 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SX374353D5;
 				INFOPLIST_FILE = WorkOutTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

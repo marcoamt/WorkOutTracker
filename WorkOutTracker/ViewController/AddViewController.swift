@@ -19,42 +19,83 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     var setsEntryArray: [UITextField] = []
     var repsEntryArray: [UITextField] = []
     
+    let scrollView: UIScrollView = {
+        let v = UIScrollView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        //v.backgroundColor = .cyan
+        v.setContentOffset(CGPoint(x: 0, y: 200), animated: true)
+        return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        self.view.addSubview(scrollView)
+        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100.0).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100.0).isActive = true
         
-        stackViewV = UIStackView(frame: CGRect(x: 20, y: 100, width: 374, height: 40))
-        stackViewV.addArrangedSubview(stackViewH)
+        stackViewV = UIStackView()
         stackViewV.axis = .vertical
         stackViewV.distribution = .fillEqually
         stackViewV.alignment = .fill
         stackViewV.spacing = 10
-
-        /*stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        stackView.topAnchor.constraint(equalTo: workoutName.bottomAnchor, constant: 8).isActive = true*/
-        stackViewV.addArrangedSubview(createRow())
-        stackViewV.translatesAutoresizingMaskIntoConstraints = true
-        self.view.addSubview(stackViewV)
+        //stackViewV.addBackground(color: .black)
+        stackViewV.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.addSubview(stackViewV)
+        stackViewV.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1).isActive = true
+        stackViewV.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 0.0).isActive = true
+        stackViewV.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8.0).isActive = true
+        stackViewV.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -0.0).isActive = true
+        stackViewV.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8.0).isActive = true
+        
+        let newRow = createRow()
+        stackViewV.addArrangedSubview(newRow)
         
     }
     
     @IBAction func addPressed(_ sender: UIButton) {
-        stackViewV.addArrangedSubview(createRow())
+        let newRow = createRow()
+        stackViewV.addArrangedSubview(newRow)
+        
+        /*newRow.leftAnchor.constraint(equalTo: self.stackViewV.leftAnchor, constant: 8.0).isActive = true
+         newRow.topAnchor.constraint(equalTo: self.stackViewV.topAnchor, constant: 8.0).isActive = true
+         newRow.rightAnchor.constraint(equalTo: self.stackViewV.rightAnchor, constant: -8.0).isActive = true
+         newRow.bottomAnchor.constraint(equalTo: self.stackViewV.bottomAnchor, constant: -8.0).isActive = true*/
+        
+    }
+    
+    @IBAction func donePressed(_ sender: Any) {
+        let woName = workoutName.text
+        let c = nameEntryArray.count
+        var ex: [Exercise] = []
+        for i in 0...c-1{
+            ex.append(Exercise(name: nameEntryArray[i].text!, reps: Int(repsEntryArray[i].text!) ?? 0, sets: Int(setsEntryArray[i].text!) ?? 0))
+        }
+        
+        let workout = Workout(name: woName!, exercise: ex)
+        
+        let wovc = WorkoutsViewController(nibName: "wovc", bundle: nil)
+        wovc.wo.append(workout)
+        navigationController?.pushViewController(wovc, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    
+    //creazione di ogni rig con 3 caselle di testo
     func createRow() -> UIStackView{
         let nameEntry = UITextField()
         nameEntry.placeholder = "Name"
         nameEntry.delegate = self
         nameEntry.backgroundColor = .white
-        
+        nameEntry.translatesAutoresizingMaskIntoConstraints = false
         nameEntryArray.append(nameEntry)
         
         //view.addSubview(nameEntry)
@@ -63,7 +104,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         setsEntry.placeholder = "Sets"
         setsEntry.delegate = self
         setsEntry.backgroundColor = .white
-        
+        setsEntry.translatesAutoresizingMaskIntoConstraints = false
         setsEntryArray.append(nameEntry)
         //view.addSubview(setsEntry)
         
@@ -71,12 +112,12 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         repsEntry.placeholder = "Reps"
         repsEntry.delegate = self
         repsEntry.backgroundColor = .white
-        
+        repsEntry.translatesAutoresizingMaskIntoConstraints = false
         repsEntryArray.append(nameEntry)
         //view.addSubview(repsEntry)
         
         
-        stackViewH = UIStackView(frame: CGRect(x: 20, y: 100, width: 374, height: 40))
+        stackViewH = UIStackView()
         stackViewH.addArrangedSubview(nameEntry)
         stackViewH.addArrangedSubview(repsEntry)
         stackViewH.addArrangedSubview(setsEntry)
@@ -84,10 +125,20 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         stackViewH.distribution = .fillEqually
         stackViewH.alignment = .fill
         stackViewH.spacing = 10
+
         
-        stackViewV.translatesAutoresizingMaskIntoConstraints = false
+        //stackViewV.translatesAutoresizingMaskIntoConstraints = false
         
         return stackViewH
     }
     
+}
+
+extension UIStackView {
+    func addBackground(color: UIColor) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subView, at: 0)
+    }
 }

@@ -8,21 +8,45 @@
 
 import UIKit
 
-class WorkoutsViewController: UIViewController {
-
+class WorkoutsViewController: UIViewController{
+    
     @IBOutlet weak var listWorkOuts: UITableView!
+    
+    var wo : [Workout] = [Workout(name: "w1", exercise: [Exercise(name: "ex1", reps: 2, sets: 2)]),
+    Workout(name: "w2", exercise: [Exercise(name: "ex2", reps: 2, sets: 2)])]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        caricaWO()
+        self.listWorkOuts.reloadData()
+        listWorkOuts.delegate = self
+        listWorkOuts.dataSource = self
+        listWorkOuts.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    
+}
 
-    func caricaWO() {
-        let wo = ["ex1", "ex2", "ex3"]
-       
-        let indexPath = IndexPath(row: wo.count - 1, section: 0)
-        listWorkOuts.beginUpdates()
-        listWorkOuts.insertRows(at: [indexPath], with: .automatic)
-        listWorkOuts.endUpdates()
+extension WorkoutsViewController: UITableViewDelegate {
+    
+}
+
+//Table View Data Source
+extension WorkoutsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return wo.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        cell?.textLabel?.text = wo[indexPath.row].name
+        return cell!
+    }
+    
 }

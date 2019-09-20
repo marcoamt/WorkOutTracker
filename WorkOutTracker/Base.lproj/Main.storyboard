@@ -79,37 +79,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPj-vB-GSQ">
-                                <rect key="frame" x="20" y="44" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="106" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-JW-rla">
-                                <rect key="frame" x="120" y="783" width="174" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-JW-rla">
+                                <rect key="frame" x="107" y="778" width="200" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2p-AN-kqZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
                                         <state key="normal" title="Add"/>
                                         <connections>
                                             <action selector="addPressed:" destination="g6E-zo-e5B" eventType="touchUpInside" id="XSx-bq-QuT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zny-fh-kKC">
-                                        <rect key="frame" x="136" y="0.0" width="38" height="30"/>
+                                        <rect key="frame" x="125" y="0.0" width="75" height="30"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="donePressed:" destination="g6E-zo-e5B" eventType="touchUpInside" id="buG-SR-KV0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0U2-Rm-Los"/>
+                                </constraints>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPj-vB-GSQ">
+                                <rect key="frame" x="20" y="58" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.71070843935012817" green="0.91114205121994019" blue="0.52960902452468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="leading" secondItem="q5A-7c-vLC" secondAttribute="leading" constant="20" id="9Pn-N1-AHa"/>
-                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="top" secondItem="q5A-7c-vLC" secondAttribute="top" id="Pix-kJ-td9"/>
-                            <constraint firstItem="q5A-7c-vLC" firstAttribute="bottom" secondItem="k3l-JW-rla" secondAttribute="bottom" id="bSM-bJ-K6A"/>
-                            <constraint firstItem="q5A-7c-vLC" firstAttribute="trailing" secondItem="k3l-JW-rla" secondAttribute="trailing" constant="120" id="lPO-Bs-tZs"/>
-                            <constraint firstItem="q5A-7c-vLC" firstAttribute="trailing" secondItem="RPj-vB-GSQ" secondAttribute="trailing" constant="20" id="pAi-Jm-o19"/>
-                            <constraint firstItem="k3l-JW-rla" firstAttribute="leading" secondItem="q5A-7c-vLC" secondAttribute="leading" constant="120" id="qIN-Zg-aa0"/>
+                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="top" secondItem="q5A-7c-vLC" secondAttribute="top" constant="14" id="IO9-JK-1dF"/>
+                            <constraint firstItem="k3l-JW-rla" firstAttribute="centerX" secondItem="g8S-lk-XfK" secondAttribute="centerX" id="N2X-vJ-mT0"/>
+                            <constraint firstItem="q5A-7c-vLC" firstAttribute="bottom" secondItem="k3l-JW-rla" secondAttribute="bottom" constant="5" id="O84-eu-yiH"/>
+                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="leading" secondItem="q5A-7c-vLC" secondAttribute="leading" constant="20" id="RAf-tu-bEU"/>
+                            <constraint firstItem="q5A-7c-vLC" firstAttribute="trailing" secondItem="RPj-vB-GSQ" secondAttribute="trailing" constant="20" id="cBr-uz-VNw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q5A-7c-vLC"/>
                     </view>
