@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ui-I0-sp5">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ui-I0-sp5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,20 +17,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m6I-lt-tZp" userLabel="listWorkOuts">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCp-zI-18C">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="WorkOutTracker" id="1LA-wN-RjJ">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uDu-B3-4u4">
+                                            <connections>
+                                                <segue destination="g6E-zo-e5B" kind="show" id="Xr1-ff-p9p"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.90196078431372551" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="lCp-zI-18C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F4e-JN-6wJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6I-lt-tZp" secondAttribute="bottom" id="GJ8-Dr-SoB"/>
-                            <constraint firstItem="m6I-lt-tZp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tqt-Xh-KDM"/>
+                            <constraint firstItem="lCp-zI-18C" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YIS-WQ-2Dp"/>
                             <constraint firstItem="m6I-lt-tZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uJ2-YF-7aU"/>
+                            <constraint firstItem="lCp-zI-18C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uYI-Wm-F1F"/>
+                            <constraint firstItem="m6I-lt-tZp" firstAttribute="top" secondItem="lCp-zI-18C" secondAttribute="bottom" id="wFK-63-LkV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m6I-lt-tZp" secondAttribute="trailing" id="xDl-7P-XzJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Workouts" image="list1x" id="fjb-2f-Ntl"/>
+                    <navigationItem key="navigationItem" id="umo-pV-Tcs"/>
                     <connections>
                         <outlet property="listWorkOuts" destination="m6I-lt-tZp" id="RXy-gK-YBE"/>
                     </connections>
@@ -76,11 +90,11 @@
             <objects>
                 <viewController id="g6E-zo-e5B" customClass="AddViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g8S-lk-XfK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-JW-rla">
-                                <rect key="frame" x="107" y="778" width="200" height="30"/>
+                                <rect key="frame" x="107" y="773" width="200" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2p-AN-kqZ">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
@@ -93,7 +107,7 @@
                                         <rect key="frame" x="125" y="0.0" width="75" height="30"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
-                                            <action selector="donePressed:" destination="g6E-zo-e5B" eventType="touchUpInside" id="buG-SR-KV0"/>
+                                            <action selector="donePressed:" destination="g6E-zo-e5B" eventType="touchUpInside" id="Hg2-Q0-0ld"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -102,8 +116,7 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPj-vB-GSQ">
-                                <rect key="frame" x="20" y="58" width="374" height="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="20" y="14" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -119,11 +132,14 @@
                         <viewLayoutGuide key="safeArea" id="q5A-7c-vLC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="add1x" id="9WM-fZ-W8i"/>
+                    <navigationItem key="navigationItem" id="54t-x3-Ka2"/>
                     <connections>
                         <outlet property="workoutName" destination="RPj-vB-GSQ" id="NZg-Du-q7T"/>
+                        <segue destination="cza-55-18Z" kind="unwind" identifier="unwindToListWO" unwindAction="unwindToListWOWithSender:" id="Xl4-MP-1dK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahu-Bb-v2h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cza-55-18Z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="979.71014492753636" y="691.74107142857144"/>
         </scene>
@@ -155,7 +171,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="rCT-g6-btI"/>
-                        <segue destination="g6E-zo-e5B" kind="relationship" relationship="viewControllers" id="tg6-X5-jpT"/>
                         <segue destination="Gv6-8k-RGW" kind="relationship" relationship="viewControllers" id="Mda-se-EkY"/>
                         <segue destination="bad-Tp-EwZ" kind="relationship" relationship="viewControllers" id="Pba-WJ-tFv"/>
                     </connections>

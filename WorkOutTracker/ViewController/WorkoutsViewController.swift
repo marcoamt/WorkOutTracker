@@ -24,6 +24,16 @@ class WorkoutsViewController: UIViewController{
         listWorkOuts.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    @IBAction func unwindToListWO(sender: UIStoryboardSegue)
+    {
+        /*if let sourceViewController = sender.source as? AddViewController {
+            let dataRecieved = sourceViewController.newWorkout
+            wo.append(dataRecieved)
+        }*/
+        listWorkOuts.reloadData()
+        
+    }
+    
     
 }
 
@@ -46,7 +56,13 @@ extension WorkoutsViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         cell?.textLabel?.text = wo[indexPath.row].name
+        cell?.accessoryType = .disclosureIndicator
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        //anadare al view controller per MODIFICARE il WORKOUT
     }
     
 }

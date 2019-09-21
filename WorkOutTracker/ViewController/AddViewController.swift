@@ -19,6 +19,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     var setsEntryArray: [UITextField] = []
     var repsEntryArray: [UITextField] = []
     
+    
     let scrollView: UIScrollView = {
         let v = UIScrollView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -70,19 +71,30 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func donePressed(_ sender: Any) {
-        let woName = workoutName.text
-        let c = nameEntryArray.count
-        var ex: [Exercise] = []
-        for i in 0...c-1{
-            ex.append(Exercise(name: nameEntryArray[i].text!, reps: Int(repsEntryArray[i].text!) ?? 0, sets: Int(setsEntryArray[i].text!) ?? 0))
-        }
-        
-        let workout = Workout(name: woName!, exercise: ex)
-        
-        let wovc = WorkoutsViewController(nibName: "wovc", bundle: nil)
-        wovc.wo.append(workout)
-        navigationController?.pushViewController(wovc, animated: true)
+        performSegue(withIdentifier: "unwindToListWO", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "unwindToListWO" {
+            let woName = workoutName.text
+            let c = nameEntryArray.count
+            
+            var ex: [Exercise] = []
+            for i in 0...c-1{
+                let sets = Int(setsEntryArray[i].text ?? "") ?? 0
+                let reps = Int(repsEntryArray[i].text ?? "") ?? 0
+                ex.append(Exercise(name: nameEntryArray[i].text!, reps: reps, sets: sets))
+            }
+            
+            let newWorkout = Workout(name: woName!, exercise: ex)
+            if let destinationVC = segue.destination as? WorkoutsViewController {
+                destinationVC.wo.append(newWorkout)
+            }
+        }
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,18 +114,20 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         
         let setsEntry = UITextField()
         setsEntry.placeholder = "Sets"
+        setsEntry.keyboardType = .numberPad
         setsEntry.delegate = self
         setsEntry.backgroundColor = .white
         setsEntry.translatesAutoresizingMaskIntoConstraints = false
-        setsEntryArray.append(nameEntry)
+        setsEntryArray.append(setsEntry)
         //view.addSubview(setsEntry)
         
         let repsEntry = UITextField()
         repsEntry.placeholder = "Reps"
+        repsEntry.keyboardType = .numberPad
         repsEntry.delegate = self
         repsEntry.backgroundColor = .white
         repsEntry.translatesAutoresizingMaskIntoConstraints = false
-        repsEntryArray.append(nameEntry)
+        repsEntryArray.append(repsEntry)
         //view.addSubview(repsEntry)
         
         
