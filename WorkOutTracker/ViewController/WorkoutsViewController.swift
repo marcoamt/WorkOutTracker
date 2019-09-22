@@ -10,6 +10,7 @@ import UIKit
 
 class WorkoutsViewController: UIViewController{
     
+    var valueToPass: Workout = Workout(name: "", exercise: [])
     @IBOutlet weak var listWorkOuts: UITableView!
     
     var wo : [Workout] = [Workout(name: "w1", exercise: [Exercise(name: "ex1", reps: 2, sets: 2)]),
@@ -37,7 +38,9 @@ class WorkoutsViewController: UIViewController{
     
 }
 
+//Table View Delegate
 extension WorkoutsViewController: UITableViewDelegate {
+    
     
 }
 
@@ -60,9 +63,27 @@ extension WorkoutsViewController: UITableViewDataSource {
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        
-        //anadare al view controller per MODIFICARE il WORKOUT
+    //vai al dettaglio del Workout
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //anadare al view controller per INIZIARE/MODIFICARE il WORKOUT
+        print("You selected cell #\(indexPath.row)!")
+
+        // Get Cell Label
+        let index = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: index)! as UITableViewCell
+
+        valueToPass = wo[indexPath.row]
+        performSegue(withIdentifier: "detailSegue", sender: self)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "detailSegue") {
+            // initialize new view controller and cast it as your view controller
+            var viewController = segue.destination as! ItemWorkoutViewController
+            // your new view controller should have property that will store passed value
+            viewController.passedValue = valueToPass
+        }
+    }
+
 }

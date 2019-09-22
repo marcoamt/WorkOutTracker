@@ -49,6 +49,7 @@
                     <navigationItem key="navigationItem" id="umo-pV-Tcs"/>
                     <connections>
                         <outlet property="listWorkOuts" destination="m6I-lt-tZp" id="RXy-gK-YBE"/>
+                        <segue destination="l4L-83-nem" kind="show" identifier="detailSegue" id="0jl-Yw-ONT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -84,6 +85,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdG-lp-2ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1798" y="23"/>
+        </scene>
+        <!--Item Workout View Controller-->
+        <scene sceneID="QDt-Yo-FoC">
+            <objects>
+                <viewController id="l4L-83-nem" customClass="ItemWorkoutViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YlM-Mu-Rf9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inA-Xk-xIY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Title" id="EfU-EB-Rrq"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.70980392156862748" green="0.90980392156862744" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="inA-Xk-xIY" firstAttribute="top" secondItem="MDl-Gp-wIe" secondAttribute="top" id="F2P-AL-C3R"/>
+                            <constraint firstItem="MDl-Gp-wIe" firstAttribute="trailing" secondItem="inA-Xk-xIY" secondAttribute="trailing" id="SZU-Cs-7ZS"/>
+                            <constraint firstItem="inA-Xk-xIY" firstAttribute="leading" secondItem="YlM-Mu-Rf9" secondAttribute="leading" id="dds-qJ-KTs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MDl-Gp-wIe"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AxZ-WQ-YGF"/>
+                    <connections>
+                        <outlet property="navBar" destination="inA-Xk-xIY" id="3Tg-am-zAX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V1w-eG-SH0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="711"/>
         </scene>
         <!--Add-->
         <scene sceneID="BpU-RZ-WXs">
@@ -121,7 +154,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.71070843935012817" green="0.91114205121994019" blue="0.52960902452468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.70980392156862748" green="0.90980392156862744" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RPj-vB-GSQ" firstAttribute="top" secondItem="q5A-7c-vLC" secondAttribute="top" constant="14" id="IO9-JK-1dF"/>
                             <constraint firstItem="k3l-JW-rla" firstAttribute="centerX" secondItem="g8S-lk-XfK" secondAttribute="centerX" id="N2X-vJ-mT0"/>
