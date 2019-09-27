@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,8 +19,14 @@
 		7EB077722320738E00BEA381 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB077712320738E00BEA381 /* AddViewController.swift */; };
 		7EB07774232073A300BEA381 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07773232073A300BEA381 /* HistoryViewController.swift */; };
 		7EB07776232073B500BEA381 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07775232073B500BEA381 /* MapViewController.swift */; };
+		7EBB8C98233CBAD000BCAFDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB8C97233CBAD000BCAFDE /* HomeViewController.swift */; };
+		7EBB8C9A233CBADC00BCAFDE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB8C99233CBADC00BCAFDE /* LoginViewController.swift */; };
+		7EBB8C9C233CBAEA00BCAFDE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB8C9B233CBAEA00BCAFDE /* RegisterViewController.swift */; };
+		7EBB8C9F233CC0B000BCAFDE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB8C9E233CC0B000BCAFDE /* Utilities.swift */; };
+		7EBB8CA1233CCDE700BCAFDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBB8CA0233CCDE700BCAFDE /* Constants.swift */; };
 		7EFDD50323353402001D05B0 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDD50223353402001D05B0 /* Workout.swift */; };
 		7EFDD5052335345A001D05B0 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFDD5042335345A001D05B0 /* Exercise.swift */; };
+		7EFF29BE233CFD3600E7F35C /* DataWorkouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFF29BD233CFD3600E7F35C /* DataWorkouts.swift */; };
 		A8729D7DC485F2A4E4F219D4 /* Pods_WorkOutTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5649C1F7D39E1D906324A8CB /* Pods_WorkOutTrackerUITests.framework */; };
 		D53BD04FD9D51D6AC2A1A1DD /* Pods_WorkOutTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22B4E4ECCBBBACFDDA82A17 /* Pods_WorkOutTracker.framework */; };
 		E3A0E8A8F3BBE0E2A90C5DC5 /* Pods_WorkOutTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C82856593A7CB6A98B3F370 /* Pods_WorkOutTrackerTests.framework */; };
@@ -67,8 +73,14 @@
 		7EB077712320738E00BEA381 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		7EB07773232073A300BEA381 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EB07775232073B500BEA381 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7EBB8C97233CBAD000BCAFDE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7EBB8C99233CBADC00BCAFDE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7EBB8C9B233CBAEA00BCAFDE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7EBB8C9E233CC0B000BCAFDE /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		7EBB8CA0233CCDE700BCAFDE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7EFDD50223353402001D05B0 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		7EFDD5042335345A001D05B0 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		7EFF29BD233CFD3600E7F35C /* DataWorkouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWorkouts.swift; sourceTree = "<group>"; };
 		A22B4E4ECCBBBACFDDA82A17 /* Pods_WorkOutTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkOutTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8CDF89C9CB01D04E556B3A6 /* Pods-WorkOutTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkOutTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkOutTrackerTests/Pods-WorkOutTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4C602E3B58A26741BBA15E6 /* Pods-WorkOutTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkOutTracker.release.xcconfig"; path = "Target Support Files/Pods-WorkOutTracker/Pods-WorkOutTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +125,6 @@
 				477B5B9B9F812350BD9A9728 /* Pods-WorkOutTrackerUITests.debug.xcconfig */,
 				789C8B393D7680CA078AA8C0 /* Pods-WorkOutTrackerUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				7EFDD501233533EA001D05B0 /* Models */,
+				7EFF29BC233CFD1500E7F35C /* Data */,
+				7EBB8C9D233CC08800BCAFDE /* Helpers */,
 				7EB077702320734D00BEA381 /* ViewController */,
 				7E2AC99C2320118D00221403 /* AppDelegate.swift */,
 				7E2AC9A02320118D00221403 /* Main.storyboard */,
@@ -175,6 +188,9 @@
 		7EB077702320734D00BEA381 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7EBB8C97233CBAD000BCAFDE /* HomeViewController.swift */,
+				7EBB8C99233CBADC00BCAFDE /* LoginViewController.swift */,
+				7EBB8C9B233CBAEA00BCAFDE /* RegisterViewController.swift */,
 				7E2AC99E2320118D00221403 /* WorkoutsViewController.swift */,
 				7EB077712320738E00BEA381 /* AddViewController.swift */,
 				7EB07773232073A300BEA381 /* HistoryViewController.swift */,
@@ -184,6 +200,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		7EBB8C9D233CC08800BCAFDE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7EBB8C9E233CC0B000BCAFDE /* Utilities.swift */,
+				7EBB8CA0233CCDE700BCAFDE /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7EFDD501233533EA001D05B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +216,14 @@
 				7EFDD5042335345A001D05B0 /* Exercise.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7EFF29BC233CFD1500E7F35C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7EFF29BD233CFD3600E7F35C /* DataWorkouts.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		FFE7CEC92199A9E4D90CCA60 /* Frameworks */ = {
@@ -426,12 +459,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E2AC99F2320118D00221403 /* WorkoutsViewController.swift in Sources */,
+				7EBB8C9C233CBAEA00BCAFDE /* RegisterViewController.swift in Sources */,
 				7E2AC99D2320118D00221403 /* AppDelegate.swift in Sources */,
+				7EFF29BE233CFD3600E7F35C /* DataWorkouts.swift in Sources */,
 				7EB077722320738E00BEA381 /* AddViewController.swift in Sources */,
 				7E43320E2337D62000E88B13 /* ItemWorkoutViewController.swift in Sources */,
 				7EB07776232073B500BEA381 /* MapViewController.swift in Sources */,
+				7EBB8C9F233CC0B000BCAFDE /* Utilities.swift in Sources */,
+				7EBB8CA1233CCDE700BCAFDE /* Constants.swift in Sources */,
+				7EBB8C98233CBAD000BCAFDE /* HomeViewController.swift in Sources */,
 				7EB07774232073A300BEA381 /* HistoryViewController.swift in Sources */,
 				7EFDD5052335345A001D05B0 /* Exercise.swift in Sources */,
+				7EBB8C9A233CBADC00BCAFDE /* LoginViewController.swift in Sources */,
 				7EFDD50323353402001D05B0 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

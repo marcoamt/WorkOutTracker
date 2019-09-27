@@ -23,6 +23,7 @@ class WorkoutsViewController: UIViewController{
         listWorkOuts.delegate = self
         listWorkOuts.dataSource = self
         listWorkOuts.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //print(Constants.Storyboard.userID)
     }
     
     @IBAction func unwindToListWO(sender: UIStoryboardSegue)
@@ -80,7 +81,7 @@ extension WorkoutsViewController: UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "detailSegue") {
             // initialize new view controller and cast it as your view controller
-            var viewController = segue.destination as! ItemWorkoutViewController
+            let viewController = segue.destination as! ItemWorkoutViewController
             // your new view controller should have property that will store passed value
             viewController.passedValue = valueToPass
         }
