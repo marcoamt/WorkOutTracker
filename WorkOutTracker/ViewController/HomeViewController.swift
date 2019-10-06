@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
 
@@ -22,6 +23,13 @@ class HomeViewController: UIViewController {
     func setupElements(){
         Utilities.styleFilledButton(loginButton)
         Utilities.styleFilledButton(registerButton)
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+         super.viewWillAppear(false)
+         if Auth.auth().currentUser != nil {
+           self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
+        }
     }
 
 }

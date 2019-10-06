@@ -19,11 +19,13 @@ class WorkoutsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.listWorkOuts.reloadData()
+        /*self.listWorkOuts.reloadData()
         listWorkOuts.delegate = self
-        listWorkOuts.dataSource = self
-        listWorkOuts.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        listWorkOuts.dataSource = self*/
+        //listWorkOuts.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //self.listWorkOuts.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
         //print(Constants.Storyboard.userID)
+        listWorkOuts.separatorStyle = .none
     }
     
     @IBAction func unwindToListWO(sender: UIStoryboardSegue)
@@ -39,14 +41,9 @@ class WorkoutsViewController: UIViewController{
     
 }
 
-//Table View Delegate
-extension WorkoutsViewController: UITableViewDelegate {
-    
-    
-}
 
 //Table View Data Source
-extension WorkoutsViewController: UITableViewDataSource {
+extension WorkoutsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -58,10 +55,18 @@ extension WorkoutsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        /*let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         cell?.textLabel?.text = wo[indexPath.row].name
         cell?.accessoryType = .disclosureIndicator
-        return cell!
+        return cell!*/
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomTableViewCell
+        
+        // Put data into the cell
+        let currentW = wo[indexPath.row]
+        cell.setFields(w: currentW)
+        //print(cell.nameLabel.text as Any)
+        //print(cell.descLabel.text as Any)
+        return cell
     }
     
     //vai al dettaglio del Workout
@@ -71,8 +76,8 @@ extension WorkoutsViewController: UITableViewDataSource {
 
         // Get Cell Label
         let index = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRow(at: index)! as UITableViewCell
-
+        //let currentCell = tableView.cellForRow(at: index)! as UITableViewCell
+        let currentCell = tableView.cellForRow(at: index)! as! CustomTableViewCell
         valueToPass = wo[indexPath.row]
         performSegue(withIdentifier: "detailSegue", sender: self)
         tableView.deselectRow(at: indexPath, animated: false)
