@@ -12,6 +12,7 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
 
     var passedValue: Workout = Workout(name: "", exercise: [])
     
+    @IBOutlet weak var nav: UINavigationItem!
     var stackViewH: UIStackView = UIStackView()
     var stackViewV: UIStackView = UIStackView()
     let scrollView: UIScrollView = {
@@ -27,7 +28,7 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         //cambio il nome del titolo della navigation bar
-        navBar.topItem?.title = passedValue.name
+        nav.title =  passedValue.name
         
         self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true

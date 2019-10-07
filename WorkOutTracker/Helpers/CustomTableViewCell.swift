@@ -19,7 +19,9 @@ class CustomTableViewCell: UITableViewCell {
     
     func setFields(w: Workout) {
         nameLabel.text = w.name
+        nameLabel.textColor = .white
         descLabel.text = "Descrizione"
+        descLabel.textColor = .white
         Utilities.styleCellView(cellView)
     }
 }

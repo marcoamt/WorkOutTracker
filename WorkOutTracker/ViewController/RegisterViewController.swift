@@ -81,7 +81,8 @@ class RegisterViewController: UIViewController {
                     
                     //go to workoutsview saving user ID on app
                     Constants.Storyboard.userID = result!.user.uid
-                    self.goToWOVC()
+                    self.performSegue(withIdentifier: "registerDoneSegue", sender: nil)
+                    //self.goToWOVC()
                 }
             }
         }

@@ -34,12 +34,7 @@ class LoginViewController: UIViewController {
       errorLabel.text = error
       errorLabel.alpha = 1
     }
-      
-      func goToWOVC(){
-          let woVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.workoutViewController) as? WorkoutsViewController
-          view.window?.rootViewController = woVC
-          view.window?.makeKeyAndVisible()
-      }
+    
     
     @IBAction func loginButtonPressed(_ sender: Any) {
 
@@ -52,7 +47,8 @@ class LoginViewController: UIViewController {
             }else{
                 //saving user id on app
                 Constants.Storyboard.userID = result!.user.uid
-                self.goToWOVC()
+                
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
     }

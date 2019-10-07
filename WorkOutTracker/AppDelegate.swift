@@ -18,7 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        /*if Auth.auth().currentUser != nil{
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            if let window = window {
+                let mainVC = WelcomeViewController.init()
+                let navigationController = UINavigationController(rootViewController: mainVC)
+                window.rootViewController = navigationController
+                window.makeKeyAndVisible()
+            }
+
+        }else{
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            if let window = window {
+                let mainVC = HomeViewController.init()
+                let navigationController = UINavigationController(rootViewController: mainVC)
+                window.rootViewController = navigationController
+                window.makeKeyAndVisible()
+            }
+        }*/
         return true
     }
 
@@ -43,7 +62,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
     
+    func switchViewControllers() {
+        
+        // switch root view controllers
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "homeVC")
+        
+        self.window?.rootViewController = nav
+        
+    }
+
+    func switchBack() {
+        
+        // switch back to view controller 1
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let nav = storyboard.instantiateViewController(withIdentifier: "welcomeVC")
+        
+        self.window?.rootViewController = nav
+    }
 }
 

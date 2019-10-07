@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Workouts-->
+        <!--WorkOuts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="workoutVC" id="BYZ-38-t0r" customClass="WorkoutsViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m6I-lt-tZp" userLabel="listWorkOuts">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="uRs-J4-Btr" customClass="CustomTableViewCell" customModule="WorkOutTracker" customModuleProvider="target">
@@ -73,33 +73,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="xmY-Qx-tL5"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCp-zI-18C">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="WorkOutTracker" id="1LA-wN-RjJ">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uDu-B3-4u4">
-                                            <connections>
-                                                <segue destination="g6E-zo-e5B" kind="show" id="Xr1-ff-p9p"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.75294117647058822" green="0.90196078431372551" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="lCp-zI-18C" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F4e-JN-6wJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6I-lt-tZp" secondAttribute="bottom" id="GJ8-Dr-SoB"/>
-                            <constraint firstItem="lCp-zI-18C" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YIS-WQ-2Dp"/>
+                            <constraint firstItem="m6I-lt-tZp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SrL-me-CDY"/>
                             <constraint firstItem="m6I-lt-tZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uJ2-YF-7aU"/>
-                            <constraint firstItem="lCp-zI-18C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uYI-Wm-F1F"/>
-                            <constraint firstItem="m6I-lt-tZp" firstAttribute="top" secondItem="lCp-zI-18C" secondAttribute="bottom" id="wFK-63-LkV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m6I-lt-tZp" secondAttribute="trailing" id="xDl-7P-XzJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Workouts" image="list1x" id="fjb-2f-Ntl"/>
-                    <navigationItem key="navigationItem" id="umo-pV-Tcs"/>
+                    <navigationItem key="navigationItem" title="WorkOuts" id="umo-pV-Tcs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uDu-B3-4u4">
+                            <connections>
+                                <segue destination="g6E-zo-e5B" kind="show" id="Xr1-ff-p9p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="listWorkOuts" destination="m6I-lt-tZp" id="RXy-gK-YBE"/>
                         <segue destination="l4L-83-nem" kind="show" identifier="detailSegue" id="0jl-Yw-ONT"/>
@@ -109,19 +100,19 @@
             </objects>
             <point key="canvasLocation" x="1339" y="171"/>
         </scene>
-        <!--Map-->
+        <!--Gyms near me-->
         <scene sceneID="NVd-1F-SAt">
             <objects>
                 <viewController id="Gv6-8k-RGW" customClass="MapViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o7m-ZP-DDZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-yT-Gq6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" red="0.71070843935012817" green="0.91114205121994019" blue="0.52960902452468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Y58-yT-Gq6" firstAttribute="leading" secondItem="B11-F5-3nD" secondAttribute="leading" id="Vxr-vC-JA7"/>
                             <constraint firstItem="B11-F5-3nD" firstAttribute="bottom" secondItem="Y58-yT-Gq6" secondAttribute="bottom" id="Xza-hL-ueT"/>
@@ -131,6 +122,7 @@
                         <viewLayoutGuide key="safeArea" id="B11-F5-3nD"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map1x" id="ndk-Ik-yU5"/>
+                    <navigationItem key="navigationItem" title="Gyms near me" id="uz6-7a-VUB"/>
                     <connections>
                         <outlet property="mapView" destination="Y58-yT-Gq6" id="MJQ-UC-MNn"/>
                     </connections>
@@ -144,11 +136,11 @@
             <objects>
                 <viewController id="5BM-ij-M6i" customClass="RegisterViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NHV-0v-Gvg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="SHD-Qf-Tvj">
-                                <rect key="frame" x="20" y="52" width="374" height="400.5"/>
+                                <rect key="frame" x="20" y="8" width="374" height="400.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4f-gH-oZc">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -211,45 +203,33 @@
                         <outlet property="passwordField" destination="ocB-FF-eMx" id="l6U-86-6jc"/>
                         <outlet property="registerButton" destination="QCF-Yr-RsK" id="BI9-CG-j3h"/>
                         <outlet property="surnameField" destination="3z2-Gu-FZU" id="Mvl-DZ-BUu"/>
+                        <segue destination="1lo-fk-wb1" kind="show" identifier="registerDoneSegue" id="Zle-Th-pgA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUi-eT-fsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-923" y="694"/>
         </scene>
-        <!--Item Workout View Controller-->
+        <!--My History-->
         <scene sceneID="QDt-Yo-FoC">
             <objects>
                 <viewController id="l4L-83-nem" customClass="ItemWorkoutViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YlM-Mu-Rf9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inA-Xk-xIY">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                <items>
-                                    <navigationItem title="Title" id="EfU-EB-Rrq"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.70980392156862748" green="0.90980392156862744" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="inA-Xk-xIY" firstAttribute="top" secondItem="MDl-Gp-wIe" secondAttribute="top" id="F2P-AL-C3R"/>
-                            <constraint firstItem="MDl-Gp-wIe" firstAttribute="trailing" secondItem="inA-Xk-xIY" secondAttribute="trailing" id="SZU-Cs-7ZS"/>
-                            <constraint firstItem="inA-Xk-xIY" firstAttribute="leading" secondItem="YlM-Mu-Rf9" secondAttribute="leading" id="dds-qJ-KTs"/>
-                        </constraints>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="MDl-Gp-wIe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AxZ-WQ-YGF"/>
+                    <navigationItem key="navigationItem" title="My History" id="AxZ-WQ-YGF"/>
                     <connections>
-                        <outlet property="navBar" destination="inA-Xk-xIY" id="3Tg-am-zAX"/>
+                        <outlet property="nav" destination="AxZ-WQ-YGF" id="ARC-6j-9l2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1w-eG-SH0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1880" y="964"/>
         </scene>
-        <!--Add-->
+        <!--Add Workout-->
         <scene sceneID="BpU-RZ-WXs">
             <objects>
                 <viewController id="g6E-zo-e5B" customClass="AddViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -285,7 +265,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.70980392156862748" green="0.90980392156862744" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="RPj-vB-GSQ" firstAttribute="top" secondItem="q5A-7c-vLC" secondAttribute="top" constant="14" id="IO9-JK-1dF"/>
                             <constraint firstItem="k3l-JW-rla" firstAttribute="centerX" secondItem="g8S-lk-XfK" secondAttribute="centerX" id="N2X-vJ-mT0"/>
@@ -296,7 +276,7 @@
                         <viewLayoutGuide key="safeArea" id="q5A-7c-vLC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="add1x" id="9WM-fZ-W8i"/>
-                    <navigationItem key="navigationItem" id="54t-x3-Ka2"/>
+                    <navigationItem key="navigationItem" title="Add Workout" id="54t-x3-Ka2"/>
                     <connections>
                         <outlet property="workoutName" destination="RPj-vB-GSQ" id="NZg-Du-q7T"/>
                         <segue destination="cza-55-18Z" kind="unwind" identifier="unwindToListWO" unwindAction="unwindToListWOWithSender:" id="Xl4-MP-1dK"/>
@@ -312,34 +292,93 @@
             <objects>
                 <viewController id="bad-Tp-EwZ" customClass="HistoryViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I4z-5F-PAV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.71070843935012817" green="0.91114205121994019" blue="0.52960902452468872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="1nA-IS-dcj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="history1x" id="luV-Sv-33v"/>
+                    <navigationItem key="navigationItem" id="9Cr-8e-aKD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBO-JK-cZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="-217"/>
+            <point key="canvasLocation" x="322" y="150"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="h3O-SI-QJb">
+            <objects>
+                <viewController storyboardIdentifier="welcomeVC" id="1lo-fk-wb1" customClass="WelcomeViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C87-3U-nvP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzd-XE-6pA">
+                                <rect key="frame" x="174" y="347" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Workouts"/>
+                                <connections>
+                                    <action selector="woButtonPressed:" destination="1lo-fk-wb1" eventType="touchUpInside" id="WX8-48-K1s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXf-RK-4qh">
+                                <rect key="frame" x="188" y="433" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Maps"/>
+                                <connections>
+                                    <action selector="mapsButtonPressed:" destination="1lo-fk-wb1" eventType="touchUpInside" id="EFU-PS-CKE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yad-md-iLH">
+                                <rect key="frame" x="182" y="506" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="History"/>
+                                <connections>
+                                    <action selector="historyButtonPressed:" destination="1lo-fk-wb1" eventType="touchUpInside" id="OQM-54-5Dc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgZ-dk-w69">
+                                <rect key="frame" x="128" y="173" width="158" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Xj7-Pe-Gk0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="Eb1-dL-VkS"/>
+                    <connections>
+                        <outlet property="nav" destination="Eb1-dL-VkS" id="mOM-Y6-Fh1"/>
+                        <outlet property="userLabel" destination="wgZ-dk-w69" id="LB6-SJ-gnx"/>
+                        <segue destination="bad-Tp-EwZ" kind="show" identifier="historySegue" id="vEc-bA-pl8"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="workoutsSegue" id="IoU-bw-xIW"/>
+                        <segue destination="Gv6-8k-RGW" kind="show" identifier="mapSegue" id="aCh-D6-zBG"/>
+                        <segue destination="Vob-ys-67i" kind="show" identifier="logoutSegue" id="dM6-cg-uNm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nt9-dw-76y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2808.6956521739135" y="-761.38392857142856"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="hRT-J9-UrU">
             <objects>
-                <viewController id="Vob-ys-67i" customClass="HomeViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" id="Vob-ys-67i" customClass="HomeViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ygf-DT-Yh4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="hDM-aq-RSa">
-                                <rect key="frame" x="40" y="713" width="334" height="129"/>
+                                <rect key="frame" x="40" y="659" width="334" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD7-sX-nf5">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
-                                        <color key="backgroundColor" red="0.70980392160000005" green="0.90980392160000001" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Xao-Pc-Jh2"/>
                                         </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <segue destination="23b-Es-wFi" kind="show" id="wGj-Z3-QbW"/>
@@ -347,7 +386,8 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZy-VV-TAx">
                                         <rect key="frame" x="0.0" y="79" width="334" height="50"/>
-                                        <color key="backgroundColor" red="0.70980392160000005" green="0.90980392160000001" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
                                             <segue destination="5BM-ij-M6i" kind="show" id="B64-UV-KKV"/>
@@ -371,7 +411,7 @@
                     <connections>
                         <outlet property="loginButton" destination="tD7-sX-nf5" id="jxw-6C-els"/>
                         <outlet property="registerButton" destination="AZy-VV-TAx" id="fX0-gf-dOQ"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="alreadyLoggedIn" id="X9u-C6-iMg"/>
+                        <segue destination="1lo-fk-wb1" kind="show" identifier="alreadyLoggedIn" id="x0v-lm-tc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adG-JB-2kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -383,11 +423,11 @@
             <objects>
                 <viewController id="23b-Es-wFi" customClass="LoginViewController" customModule="WorkOutTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nKw-h1-MGX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-tI-vc8">
-                                <rect key="frame" x="20" y="52" width="374" height="248.5"/>
+                                <rect key="frame" x="20" y="8" width="374" height="248.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQF-mH-5q7">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -436,38 +476,22 @@
                         <outlet property="errorLabel" destination="Xdd-rW-7I7" id="JjL-yb-5Cz"/>
                         <outlet property="loginButton" destination="8bE-Pw-xAB" id="nnJ-5N-XsZ"/>
                         <outlet property="passwordField" destination="jxo-lp-I2A" id="XmK-8m-u35"/>
+                        <segue destination="1lo-fk-wb1" kind="show" identifier="loginSegue" id="d89-uV-NaQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lln-Rd-WcV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-946" y="9"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="INa-7K-ooR">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6ui-I0-sp5" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AnW-wW-XIS">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="rCT-g6-btI"/>
-                        <segue destination="Gv6-8k-RGW" kind="relationship" relationship="viewControllers" id="Mda-se-EkY"/>
-                        <segue destination="bad-Tp-EwZ" kind="relationship" relationship="viewControllers" id="Pba-WJ-tFv"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zzB-XH-uJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1561" y="-631"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gCC-3D-y9o">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="qeZ-wZ-s0p" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eIE-mC-m41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qeZ-wZ-s0p" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="uae-Dd-hlJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HgB-sH-oxa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -478,7 +502,6 @@
                         <segue destination="Vob-ys-67i" kind="relationship" relationship="rootViewController" id="UUu-Lw-6db"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eIE-mC-m41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2726.0869565217395" y="5.3571428571428568"/>
         </scene>
@@ -490,6 +513,7 @@
         <image name="map1x" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rCT-g6-btI"/>
+        <segue reference="dM6-cg-uNm"/>
+        <segue reference="x0v-lm-tc5"/>
     </inferredMetricsTieBreakers>
 </document>

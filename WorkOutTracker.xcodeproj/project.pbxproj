@@ -17,6 +17,7 @@
 		7E2AC9BD2320118D00221403 /* WorkOutTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AC9BC2320118D00221403 /* WorkOutTrackerUITests.swift */; };
 		7E43320E2337D62000E88B13 /* ItemWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E43320D2337D62000E88B13 /* ItemWorkoutViewController.swift */; };
 		7E497AAE2338051B0082AA5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E497AAD2338051B0082AA5B /* GoogleService-Info.plist */; };
+		7EA41979234A700000791EB2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA41978234A700000791EB2 /* WelcomeViewController.swift */; };
 		7EB077722320738E00BEA381 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB077712320738E00BEA381 /* AddViewController.swift */; };
 		7EB07774232073A300BEA381 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07773232073A300BEA381 /* HistoryViewController.swift */; };
 		7EB07776232073B500BEA381 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB07775232073B500BEA381 /* MapViewController.swift */; };
@@ -72,6 +73,7 @@
 		7E2AC9BE2320118D00221403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E43320D2337D62000E88B13 /* ItemWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWorkoutViewController.swift; sourceTree = "<group>"; };
 		7E497AAD2338051B0082AA5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7EA41978234A700000791EB2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		7EB077712320738E00BEA381 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		7EB07773232073A300BEA381 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7EB07775232073B500BEA381 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				7EBB8C97233CBAD000BCAFDE /* HomeViewController.swift */,
 				7EBB8C99233CBADC00BCAFDE /* LoginViewController.swift */,
 				7EBB8C9B233CBAEA00BCAFDE /* RegisterViewController.swift */,
+				7EA41978234A700000791EB2 /* WelcomeViewController.swift */,
 				7E2AC99E2320118D00221403 /* WorkoutsViewController.swift */,
 				7EB077712320738E00BEA381 /* AddViewController.swift */,
 				7EB07773232073A300BEA381 /* HistoryViewController.swift */,
@@ -462,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E2AC99F2320118D00221403 /* WorkoutsViewController.swift in Sources */,
+				7EA41979234A700000791EB2 /* WelcomeViewController.swift in Sources */,
 				7EBB8C9C233CBAEA00BCAFDE /* RegisterViewController.swift in Sources */,
 				7E2AC99D2320118D00221403 /* AppDelegate.swift in Sources */,
 				7EFF29BE233CFD3600E7F35C /* DataWorkouts.swift in Sources */,

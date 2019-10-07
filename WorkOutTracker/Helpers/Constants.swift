@@ -11,6 +11,7 @@ import Foundation
 struct Constants {
     struct Storyboard {
         static let workoutViewController = "workoutVC"
+        static let welcomeViewController = "welcomeVC"
         static var userID = ""
     }
 }
