@@ -10,6 +10,7 @@ target 'WorkOutTracker' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Database'
 
   target 'WorkOutTrackerTests' do
     inherit! :search_paths

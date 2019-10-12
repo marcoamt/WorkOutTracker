@@ -10,7 +10,7 @@ import UIKit
 
 class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
 
-    var passedValue: Workout = Workout(name: "", exercise: [])
+    var passedValue: Workout = Workout(name: "", descrizione: "desc", exercise: [])
     
     @IBOutlet weak var nav: UINavigationItem!
     var stackViewH: UIStackView = UIStackView()

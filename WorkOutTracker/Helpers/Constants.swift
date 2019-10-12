@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import Firebase
 
 struct Constants {
     struct Storyboard {
         static let workoutViewController = "workoutVC"
         static let welcomeViewController = "welcomeVC"
         static var userID = ""
+        static var wo : [Workout] = DataWorkouts.loadData()
+        
     }
 }

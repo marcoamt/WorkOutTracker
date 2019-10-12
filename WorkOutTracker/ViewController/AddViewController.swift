@@ -75,7 +75,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "unwindToListWO", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "unwindToListWO" {
             let woName = workoutName.text
@@ -88,12 +88,12 @@ class AddViewController: UIViewController, UITextFieldDelegate {
                 ex.append(Exercise(name: nameEntryArray[i].text!, reps: reps, sets: sets))
             }
             
-            let newWorkout = Workout(name: woName!, exercise: ex)
+            let newWorkout = Workout(name: woName!, descrizione: "desc", exercise: ex)
             if let destinationVC = segue.destination as? WorkoutsViewController {
                 destinationVC.wo.append(newWorkout)
             }
         }
-    }
+    }*/
     
     
     

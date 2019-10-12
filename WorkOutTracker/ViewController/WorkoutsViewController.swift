@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import Firebase
+
+
 
 class WorkoutsViewController: UIViewController{
     
-    var valueToPass: Workout = Workout(name: "", exercise: [])
+    var wo : [Workout] = []
+    var valueToPass: Workout = Workout(name: "", descrizione: "desc", exercise: [])
     @IBOutlet weak var listWorkOuts: UITableView!
     
-    var wo : [Workout] = [Workout(name: "w1", exercise: [Exercise(name: "ex1", reps: 2, sets: 2)]),
-    Workout(name: "w2", exercise: [Exercise(name: "ex2", reps: 2, sets: 2)])]
+    /*var wo : [Workout] = [Workout(name: "w1", descrizione: "desc", exercise: [Exercise(name: "ex1", reps: 2, sets: 2)]),
+    Workout(name: "w2", descrizione: "desc", exercise: [Exercise(name: "ex2", reps: 2, sets: 2)])]*/
+
+    //let wo : [Workout] = DataWorkouts.loadData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +32,41 @@ class WorkoutsViewController: UIViewController{
         //self.listWorkOuts.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
         //print(Constants.Storyboard.userID)
         listWorkOuts.separatorStyle = .none
+        
+        self.getData()
     }
+    
+    
+    func getData(){
+        //prendi i dati dal db
+        let user = Auth.auth().currentUser
+
+        let db = Firestore.firestore()
+        db.collection("workouts").whereField("uid", isEqualTo: user!.uid).getDocuments() { (querySnapshot, err) in if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    var array: [Workout] = []
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let a = data["Exercises"] as! Dictionary<String, Any>
+                        let reps = a["reps"] as! String
+                        let sets = a["sets"] as! String
+                        let ex: Exercise = Exercise(name: a["nome"] as! String, reps: Int(reps)!, sets: Int(sets)!)
+                        let w = Workout(name: data["nome"] as! String, descrizione: data["descrizione"] as! String, exercise: [ex])
+                        array.append(w)
+                        print(reps)
+                        //print("\(document.documentID) => \(document.data())")
+                    }
+
+                    self.wo = array
+                    print("Reload")
+                    self.listWorkOuts.reloadData()
+                    print(array)
+                }
+            
+        }
+    }
+    
     
     @IBAction func unwindToListWO(sender: UIStoryboardSegue)
     {
@@ -50,6 +90,7 @@ extension WorkoutsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numero di righe: " + String(wo.count))
         return wo.count
     }
     
@@ -64,8 +105,6 @@ extension WorkoutsViewController: UITableViewDataSource, UITableViewDelegate {
         // Put data into the cell
         let currentW = wo[indexPath.row]
         cell.setFields(w: currentW)
-        //print(cell.nameLabel.text as Any)
-        //print(cell.descLabel.text as Any)
         return cell
     }
     
