@@ -32,10 +32,8 @@ class WorkoutsViewController: UIViewController{
         //self.listWorkOuts.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
         //print(Constants.Storyboard.userID)
         listWorkOuts.separatorStyle = .none
-        
         self.getData()
     }
-    
     
     func getData(){
         //prendi i dati dal db
@@ -48,16 +46,31 @@ class WorkoutsViewController: UIViewController{
                     var array: [Workout] = []
                     for document in querySnapshot!.documents {
                         let data = document.data()
-                        let a = data["Exercises"] as! Dictionary<String, Any>
+                        print(data )
+                        var exArray: [Exercise] = []
+                        print("exercises")
+                        print(data["Exercises"])
+                        //let ex = data["Exercises"] as! Dictionary<String,Any>
+                        let ex = data["Exercises"] as! NSMutableArray
+                        for esercizio in ex{
+                            //let value = esercizio.value as! Dictionary<String,Any>
+                            let e = esercizio as! Dictionary<String,Any>
+                            let n = e["name"] as! String
+                            let r = e["reps"] as! Int
+                            let s = e["sets"] as! Int
+                            exArray.append(Exercise(name: n, reps: r, sets: s))
+                        }
+                        /*let a = data["Exercises"] as! Dictionary<String, Any>
                         let reps = a["reps"] as! String
                         let sets = a["sets"] as! String
-                        let ex: Exercise = Exercise(name: a["nome"] as! String, reps: Int(reps)!, sets: Int(sets)!)
-                        let w = Workout(name: data["nome"] as! String, descrizione: data["descrizione"] as! String, exercise: [ex])
+                        let ex: Exercise = Exercise(name: a["nome"] as! String, reps: Int(reps)!, sets: Int(sets)!)*/
+                        let w = Workout(name: data["nome"] as! String, descrizione: data["descrizione"] as! String, exercise: exArray)
                         array.append(w)
-                        print(reps)
+                        print("workout")
+                        print(w)
                         //print("\(document.documentID) => \(document.data())")
                     }
-
+            
                     self.wo = array
                     print("Reload")
                     self.listWorkOuts.reloadData()
@@ -74,7 +87,7 @@ class WorkoutsViewController: UIViewController{
             let dataRecieved = sourceViewController.newWorkout
             wo.append(dataRecieved)
         }*/
-        listWorkOuts.reloadData()
+        self.getData()
         
     }
     
@@ -90,7 +103,6 @@ extension WorkoutsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numero di righe: " + String(wo.count))
         return wo.count
     }
     
@@ -132,3 +144,5 @@ extension WorkoutsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
 }
+
+

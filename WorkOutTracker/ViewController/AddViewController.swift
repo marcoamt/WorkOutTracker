@@ -13,6 +13,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var workoutName: UITextField!
     
+    @IBOutlet weak var descTextView: UITextView!
     var stackViewH: UIStackView = UIStackView()
     var stackViewV: UIStackView = UIStackView()
     
@@ -33,10 +34,14 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        workoutName.layer.borderWidth = 1
+        workoutName.layer.borderColor = UIColor.blue.cgColor
+        descTextView.layer.borderWidth = 1
+        descTextView.layer.borderColor = UIColor.blue.cgColor
         
         self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100.0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 280.0).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100.0).isActive = true
         
@@ -72,8 +77,49 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func donePressed(_ sender: Any) {
+        let name = workoutName.text
+        let desc = descTextView.text
+        var exArray: [Exercise] = []
+        for i in 0 ..< nameEntryArray.count{
+            exArray.append(Exercise(name: nameEntryArray[i].text!, reps: Int(repsEntryArray[i].text!)!, sets: Int(setsEntryArray[i].text!)!))
+        }
+        let newWorkout = Workout(name: name!, descrizione: desc!, exercise: exArray)
+        
+        let user = Auth.auth().currentUser
+        let db = Firestore.firestore()
+        
+        
+        
+        //let dic: Dictionary<String, Any> = newWorkout.exercise.toDictionary{$0.name}
+        
+        var dic: Dictionary<String, Any> = [:]
+        let f = newWorkout.exercise.compactMap { (Exercise) -> Dictionary<String, Any>? in
+            
+            dic["name"] = Exercise.name
+            dic["reps"] = Exercise.reps
+            dic["sets"] = Exercise.sets
+            return dic
+        }
+        
+        print(f)
+        
+        db.collection("workouts").addDocument(data: [
+            "nome" : newWorkout.name,
+            "descrizione": newWorkout.descrizione,
+            "Exercises": f,
+            "uid": user!.uid
+        ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("ok")
+                }
+        }
+        
         performSegue(withIdentifier: "unwindToListWO", sender: self)
     }
+    
+
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -104,10 +150,13 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     //creazione di ogni rig con 3 caselle di testo
     func createRow() -> UIStackView{
+
         let nameEntry = UITextField()
         nameEntry.placeholder = "Name"
         nameEntry.delegate = self
         nameEntry.backgroundColor = .white
+        nameEntry.layer.borderWidth = 1
+        nameEntry.layer.borderColor = UIColor.blue.cgColor
         nameEntry.translatesAutoresizingMaskIntoConstraints = false
         nameEntryArray.append(nameEntry)
         
@@ -118,6 +167,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         setsEntry.keyboardType = .numberPad
         setsEntry.delegate = self
         setsEntry.backgroundColor = .white
+        setsEntry.layer.borderWidth = 1
+        setsEntry.layer.borderColor = UIColor.blue.cgColor
         setsEntry.translatesAutoresizingMaskIntoConstraints = false
         setsEntryArray.append(setsEntry)
         //view.addSubview(setsEntry)
@@ -127,6 +178,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         repsEntry.keyboardType = .numberPad
         repsEntry.delegate = self
         repsEntry.backgroundColor = .white
+        repsEntry.layer.borderWidth = 1
+        repsEntry.layer.borderColor = UIColor.blue.cgColor
         repsEntry.translatesAutoresizingMaskIntoConstraints = false
         repsEntryArray.append(repsEntry)
         //view.addSubview(repsEntry)
@@ -140,7 +193,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         stackViewH.distribution = .fillEqually
         stackViewH.alignment = .fill
         stackViewH.spacing = 10
-
         
         //stackViewV.translatesAutoresizingMaskIntoConstraints = false
         
@@ -155,5 +207,24 @@ extension UIStackView {
         subView.backgroundColor = color
         subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         insertSubview(subView, at: 0)
+    }
+}
+
+extension Array {
+    public func toDictionary<Key: Hashable>(with selectKey: (Element) -> Key) -> [Key:Element] {
+        var dict = [Key:Element]()
+        for element in self {
+            dict[selectKey(element)] = element
+        }
+        return dict
+    }
+}
+extension Dictionary {
+    public func toMap<Key: Hashable>(with selectKey: (Element) -> Key) -> [Key:Element] {
+        var dict = [Key:Element]()
+        for element in self {
+            dict[selectKey(element)] = element
+        }
+        return dict
     }
 }

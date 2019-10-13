@@ -175,7 +175,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOL-cX-078">
                                         <rect key="frame" x="0.0" y="380" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -242,11 +242,11 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNy-zN-982">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
-                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQO-lb-xSv">
                                         <rect key="frame" x="0.0" y="409" width="414" height="409"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -304,24 +304,38 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPj-vB-GSQ">
-                                <rect key="frame" x="20" y="14" width="374" height="34"/>
+                                <rect key="frame" x="20" y="30" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Descrizione" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jxs-P8-wgj">
+                                <rect key="frame" x="20" y="74" width="374" height="120"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="HA8-rh-yo4"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="top" secondItem="q5A-7c-vLC" secondAttribute="top" constant="14" id="IO9-JK-1dF"/>
+                            <constraint firstItem="RPj-vB-GSQ" firstAttribute="top" secondItem="q5A-7c-vLC" secondAttribute="top" constant="30" id="IO9-JK-1dF"/>
                             <constraint firstItem="k3l-JW-rla" firstAttribute="centerX" secondItem="g8S-lk-XfK" secondAttribute="centerX" id="N2X-vJ-mT0"/>
                             <constraint firstItem="q5A-7c-vLC" firstAttribute="bottom" secondItem="k3l-JW-rla" secondAttribute="bottom" constant="5" id="O84-eu-yiH"/>
+                            <constraint firstItem="Jxs-P8-wgj" firstAttribute="leading" secondItem="q5A-7c-vLC" secondAttribute="leading" constant="20" id="Ptt-NW-SAU"/>
                             <constraint firstItem="RPj-vB-GSQ" firstAttribute="leading" secondItem="q5A-7c-vLC" secondAttribute="leading" constant="20" id="RAf-tu-bEU"/>
                             <constraint firstItem="q5A-7c-vLC" firstAttribute="trailing" secondItem="RPj-vB-GSQ" secondAttribute="trailing" constant="20" id="cBr-uz-VNw"/>
+                            <constraint firstItem="q5A-7c-vLC" firstAttribute="trailing" secondItem="Jxs-P8-wgj" secondAttribute="trailing" constant="20" id="ddg-Ry-fso"/>
+                            <constraint firstItem="Jxs-P8-wgj" firstAttribute="top" secondItem="RPj-vB-GSQ" secondAttribute="bottom" constant="10" id="pmg-3K-08z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q5A-7c-vLC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add" image="add1x" id="9WM-fZ-W8i"/>
                     <navigationItem key="navigationItem" title="Add Workout" id="54t-x3-Ka2"/>
                     <connections>
+                        <outlet property="descTextView" destination="Jxs-P8-wgj" id="eMw-ZG-2HC"/>
                         <outlet property="workoutName" destination="RPj-vB-GSQ" id="NZg-Du-q7T"/>
                         <segue destination="cza-55-18Z" kind="unwind" identifier="unwindToListWO" unwindAction="unwindToListWOWithSender:" id="Xl4-MP-1dK"/>
                     </connections>
@@ -496,7 +510,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdd-rW-7I7">
                                         <rect key="frame" x="0.0" y="228" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -557,6 +571,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fDk-WU-nE3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SU-IV-oeu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
