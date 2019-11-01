@@ -51,42 +51,40 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
         stackViewV.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -0.0).isActive = true
         stackViewV.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8.0).isActive = true
         
-        let newRow = createRow()
-        stackViewV.addArrangedSubview(newRow)
+        let numEx = passedValue.exercise.count
         
+        for i in 0...numEx-1{
+            let newRow = createRow(exercise: passedValue.exercise[i])
+            stackViewV.addArrangedSubview(newRow)
+        }
+        
+        let startButton = UIButton()
+        startButton.setTitle("Start", for: .normal)
+        startButton.setTitleColor(.black, for: .normal)
+        Utilities.styleHomeButton(startButton)
+        
+        stackViewV.addArrangedSubview(startButton)
     }
     
     
-    func createRow() -> UIStackView{
-        let nameEntry = UITextField()
-        nameEntry.placeholder = "Name"
-        nameEntry.delegate = self
-        nameEntry.backgroundColor = .white
-        nameEntry.translatesAutoresizingMaskIntoConstraints = false
+    func createRow(exercise: Exercise) -> UIStackView{
         
-        //view.addSubview(nameEntry)
+        let nameLabel = UILabel()
+        nameLabel.text = exercise.name
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let setsEntry = UITextField()
-        setsEntry.placeholder = "Sets"
-        setsEntry.keyboardType = .numberPad
-        setsEntry.delegate = self
-        setsEntry.backgroundColor = .white
-        setsEntry.translatesAutoresizingMaskIntoConstraints = false
-        //view.addSubview(setsEntry)
+        let setsLabel = UILabel()
+        setsLabel.text = String(exercise.sets)
+        setsLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let repsEntry = UITextField()
-        repsEntry.placeholder = "Reps"
-        repsEntry.keyboardType = .numberPad
-        repsEntry.delegate = self
-        repsEntry.backgroundColor = .white
-        repsEntry.translatesAutoresizingMaskIntoConstraints = false
-        //view.addSubview(repsEntry)
-        
+        let repsLabel = UILabel()
+        repsLabel.text = String(exercise.reps)
+        repsLabel.translatesAutoresizingMaskIntoConstraints = false
         
         stackViewH = UIStackView()
-        stackViewH.addArrangedSubview(nameEntry)
-        stackViewH.addArrangedSubview(repsEntry)
-        stackViewH.addArrangedSubview(setsEntry)
+        stackViewH.addArrangedSubview(nameLabel)
+        stackViewH.addArrangedSubview(repsLabel)
+        stackViewH.addArrangedSubview(setsLabel)
         stackViewH.axis = .horizontal
         stackViewH.distribution = .fillEqually
         stackViewH.alignment = .fill

@@ -39,7 +39,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "Gym"
         // 2
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         request.region = MKCoordinateRegion.init(center: locationManager.location!.coordinate, span: span)
         // 3
         let search = MKLocalSearch(request: request)

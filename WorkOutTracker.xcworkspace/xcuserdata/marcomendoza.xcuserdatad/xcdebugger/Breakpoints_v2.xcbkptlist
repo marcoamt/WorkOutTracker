@@ -20,5 +20,113 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "022A13EE-E534-44E8-81C3-FC9029854B6F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorkOutTracker/ViewController/ItemWorkoutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ItemWorkoutViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "022A13EE-E534-44E8-81C3-FC9029854B6F - 2325b5a1f81cd130"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkOutTracker.ItemWorkoutViewController.passedValue.getter : WorkOutTracker.Workout"
+                  moduleName = "WorkOutTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomendoza/Documents/XcodeProjects/WorkOutTracker/WorkOutTracker/ViewController/ItemWorkoutViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "201">
+               </Location>
+               <Location
+                  uuid = "022A13EE-E534-44E8-81C3-FC9029854B6F - 6a2e72c4e342793c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkOutTracker.ItemWorkoutViewController.passedValue.setter : WorkOutTracker.Workout"
+                  moduleName = "WorkOutTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomendoza/Documents/XcodeProjects/WorkOutTracker/WorkOutTracker/ViewController/ItemWorkoutViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "221">
+               </Location>
+               <Location
+                  uuid = "022A13EE-E534-44E8-81C3-FC9029854B6F - f64bf871dbbe8b0d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkOutTracker.ItemWorkoutViewController.passedValue.modify : WorkOutTracker.Workout"
+                  moduleName = "WorkOutTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomendoza/Documents/XcodeProjects/WorkOutTracker/WorkOutTracker/ViewController/ItemWorkoutViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "022A13EE-E534-44E8-81C3-FC9029854B6F - d0569c9fa60c8c99"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkOutTracker.ItemWorkoutViewController.passedValue.modify : WorkOutTracker.Workout with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "WorkOutTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomendoza/Documents/XcodeProjects/WorkOutTracker/WorkOutTracker/ViewController/ItemWorkoutViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "022A13EE-E534-44E8-81C3-FC9029854B6F - 6acdcacab45c22c5"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkOutTracker.ItemWorkoutViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; WorkOutTracker.ItemWorkoutViewController"
+                  moduleName = "WorkOutTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomendoza/Documents/XcodeProjects/WorkOutTracker/WorkOutTracker/ViewController/ItemWorkoutViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "182">
+               </Location>
+               <Location
+                  uuid = "022A13EE-E534-44E8-81C3-FC9029854B6F - d273ba9286cd435a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkOutTracker.ItemWorkoutViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;WorkOutTracker.ItemWorkoutViewController&gt;"
+                  moduleName = "WorkOutTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcomendoza/Documents/XcodeProjects/WorkOutTracker/WorkOutTracker/ViewController/ItemWorkoutViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "122">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
