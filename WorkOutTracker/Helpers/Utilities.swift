@@ -28,6 +28,19 @@ class Utilities {
         
     }
     
+    static func styleAddTextField(_ textfield:UITextField) {
+        
+        
+        //textfield.layer.cornerRadius = 10
+        
+        textfield.borderStyle = .roundedRect
+        textfield.backgroundColor = .white
+        textfield.layer.borderWidth = 1
+        textfield.layer.borderColor = UIColor.black.cgColor
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        
+    }
+    
     static func styleFilledButton(_ button:UIButton) {
         
         // Filled rounded corner style

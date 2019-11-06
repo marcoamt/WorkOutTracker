@@ -34,10 +34,10 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        workoutName.layer.borderWidth = 1
-        workoutName.layer.borderColor = UIColor.blue.cgColor
+        Utilities.styleAddTextField(workoutName)
         descTextView.layer.borderWidth = 1
-        descTextView.layer.borderColor = UIColor.blue.cgColor
+        descTextView.layer.borderColor = UIColor.black.cgColor
+        descTextView.layer.cornerRadius = 10.0
         
         self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
@@ -49,7 +49,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         stackViewV.axis = .vertical
         stackViewV.distribution = .fillEqually
         stackViewV.alignment = .fill
-        stackViewV.spacing = 10
+        stackViewV.spacing = 20
         //stackViewV.addBackground(color: .black)
         stackViewV.translatesAutoresizingMaskIntoConstraints = false
         
@@ -65,15 +65,15 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func addPressed(_ sender: UIButton) {
-        let newRow = createRow()
-        stackViewV.addArrangedSubview(newRow)
-        
-        /*newRow.leftAnchor.constraint(equalTo: self.stackViewV.leftAnchor, constant: 8.0).isActive = true
-         newRow.topAnchor.constraint(equalTo: self.stackViewV.topAnchor, constant: 8.0).isActive = true
-         newRow.rightAnchor.constraint(equalTo: self.stackViewV.rightAnchor, constant: -8.0).isActive = true
-         newRow.bottomAnchor.constraint(equalTo: self.stackViewV.bottomAnchor, constant: -8.0).isActive = true*/
-        
+    @IBAction func stepper(_ sender: UIStepper) {
+        print("stepper: " + String(sender.value))
+        if(nameEntryArray.count-1 <= Int(sender.value)){
+            let newRow = createRow()
+            stackViewV.addArrangedSubview(newRow)
+        } else{
+            deleteRow()
+        }
+        print("rows: " + String(nameEntryArray.count))
     }
     
     @IBAction func donePressed(_ sender: Any) {
@@ -152,35 +152,26 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     func createRow() -> UIStackView{
 
         let nameEntry = UITextField()
-        nameEntry.placeholder = "Name"
         nameEntry.delegate = self
-        nameEntry.backgroundColor = .white
-        nameEntry.layer.borderWidth = 1
-        nameEntry.layer.borderColor = UIColor.blue.cgColor
-        nameEntry.translatesAutoresizingMaskIntoConstraints = false
+        Utilities.styleAddTextField(nameEntry)
+        nameEntry.placeholder = "Name"
         nameEntryArray.append(nameEntry)
         
         //view.addSubview(nameEntry)
         
         let setsEntry = UITextField()
+        setsEntry.delegate = self
+        Utilities.styleAddTextField(setsEntry)
         setsEntry.placeholder = "Sets"
         setsEntry.keyboardType = .numberPad
-        setsEntry.delegate = self
-        setsEntry.backgroundColor = .white
-        setsEntry.layer.borderWidth = 1
-        setsEntry.layer.borderColor = UIColor.blue.cgColor
-        setsEntry.translatesAutoresizingMaskIntoConstraints = false
         setsEntryArray.append(setsEntry)
         //view.addSubview(setsEntry)
         
         let repsEntry = UITextField()
+        repsEntry.delegate = self
+        Utilities.styleAddTextField(repsEntry)
         repsEntry.placeholder = "Reps"
         repsEntry.keyboardType = .numberPad
-        repsEntry.delegate = self
-        repsEntry.backgroundColor = .white
-        repsEntry.layer.borderWidth = 1
-        repsEntry.layer.borderColor = UIColor.blue.cgColor
-        repsEntry.translatesAutoresizingMaskIntoConstraints = false
         repsEntryArray.append(repsEntry)
         //view.addSubview(repsEntry)
         
@@ -197,6 +188,14 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         //stackViewV.translatesAutoresizingMaskIntoConstraints = false
         
         return stackViewH
+    }
+    
+    func deleteRow() {
+        let lastId = nameEntryArray.count-1
+        nameEntryArray.remove(at: lastId)
+        repsEntryArray.remove(at: lastId)
+        setsEntryArray.remove(at: lastId)
+        stackViewV.arrangedSubviews[lastId].removeFromSuperview()
     }
     
 }

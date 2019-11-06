@@ -237,18 +237,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-JW-rla">
-                                <rect key="frame" x="107" y="827" width="200" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-JW-rla">
+                                <rect key="frame" x="57" y="773" width="300" height="84"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2p-AN-kqZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
-                                        <state key="normal" title="Add"/>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="6vk-5H-8yZ">
+                                        <rect key="frame" x="103" y="0.0" width="94" height="32"/>
                                         <connections>
-                                            <action selector="addPressed:" destination="g6E-zo-e5B" eventType="touchUpInside" id="XSx-bq-QuT"/>
+                                            <action selector="stepper:" destination="g6E-zo-e5B" eventType="valueChanged" id="paN-RY-9mb"/>
                                         </connections>
-                                    </button>
+                                    </stepper>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zny-fh-kKC">
-                                        <rect key="frame" x="125" y="0.0" width="75" height="30"/>
+                                        <rect key="frame" x="131.5" y="52" width="37" height="32"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="donePressed:" destination="g6E-zo-e5B" eventType="touchUpInside" id="Hg2-Q0-0ld"/>
@@ -256,7 +255,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="0U2-Rm-Los"/>
+                                    <constraint firstAttribute="width" constant="300" id="0U2-Rm-Los"/>
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPj-vB-GSQ">
