@@ -41,9 +41,9 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         
         self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 280.0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300.0).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100.0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150.0).isActive = true
         
         stackViewV = UIStackView()
         stackViewV.axis = .vertical

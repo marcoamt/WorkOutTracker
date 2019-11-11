@@ -14,24 +14,16 @@ import Firebase
 class WorkoutsViewController: UIViewController{
     
     var wo : [Workout] = []
-    var valueToPass: Workout = Workout(name: "", descrizione: "desc", exercise: [])
+    var valueToPass: Workout = Workout(id: "", name: "", descrizione: "", exercise: [])
     @IBOutlet weak var listWorkOuts: UITableView!
-    
-    /*var wo : [Workout] = [Workout(name: "w1", descrizione: "desc", exercise: [Exercise(name: "ex1", reps: 2, sets: 2)]),
-    Workout(name: "w2", descrizione: "desc", exercise: [Exercise(name: "ex2", reps: 2, sets: 2)])]*/
-
-    //let wo : [Workout] = DataWorkouts.loadData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        /*self.listWorkOuts.reloadData()
-        listWorkOuts.delegate = self
-        listWorkOuts.dataSource = self*/
-        //listWorkOuts.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        //self.listWorkOuts.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
-        //print(Constants.Storyboard.userID)
         listWorkOuts.separatorStyle = .none
+        self.getData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.getData()
     }
     
@@ -46,10 +38,10 @@ class WorkoutsViewController: UIViewController{
                     var array: [Workout] = []
                     for document in querySnapshot!.documents {
                         let data = document.data()
+                        print("eewwwwwwwwww")
                         print(data )
                         var exArray: [Exercise] = []
                         print("exercises")
-                        print(data["Exercises"])
                         //let ex = data["Exercises"] as! Dictionary<String,Any>
                         let ex = data["Exercises"] as! NSMutableArray
                         for esercizio in ex{
@@ -60,11 +52,8 @@ class WorkoutsViewController: UIViewController{
                             let s = e["sets"] as! Int
                             exArray.append(Exercise(name: n, reps: r, sets: s))
                         }
-                        /*let a = data["Exercises"] as! Dictionary<String, Any>
-                        let reps = a["reps"] as! String
-                        let sets = a["sets"] as! String
-                        let ex: Exercise = Exercise(name: a["nome"] as! String, reps: Int(reps)!, sets: Int(sets)!)*/
-                        let w = Workout(name: data["nome"] as! String, descrizione: data["descrizione"] as! String, exercise: exArray)
+                        
+                        let w = Workout(id: document.documentID, name: data["nome"] as! String, descrizione: data["descrizione"] as! String, exercise: exArray)
                         array.append(w)
                         print("workout")
                         print(w)
@@ -83,10 +72,7 @@ class WorkoutsViewController: UIViewController{
     
     @IBAction func unwindToListWO(sender: UIStoryboardSegue)
     {
-        /*if let sourceViewController = sender.source as? AddViewController {
-            let dataRecieved = sourceViewController.newWorkout
-            wo.append(dataRecieved)
-        }*/
+        
         self.getData()
         
     }
@@ -108,10 +94,6 @@ extension WorkoutsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        /*let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = wo[indexPath.row].name
-        cell?.accessoryType = .disclosureIndicator
-        return cell!*/
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomTableViewCell
         
         // Put data into the cell
@@ -128,7 +110,7 @@ extension WorkoutsViewController: UITableViewDataSource, UITableViewDelegate {
         // Get Cell Label
         let index = tableView.indexPathForSelectedRow!
         //let currentCell = tableView.cellForRow(at: index)! as UITableViewCell
-        let currentCell = tableView.cellForRow(at: index)! as! CustomTableViewCell
+        _ = tableView.cellForRow(at: index)! as! CustomTableViewCell
         valueToPass = wo[indexPath.row]
         performSegue(withIdentifier: "detailSegue", sender: self)
         tableView.deselectRow(at: indexPath, animated: false)

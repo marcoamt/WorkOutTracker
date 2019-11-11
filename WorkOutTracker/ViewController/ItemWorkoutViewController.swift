@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
 
@@ -51,6 +52,33 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
         stackViewV.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -0.0).isActive = true
         stackViewV.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8.0).isActive = true
         
+        let nameLabel = UILabel()
+        nameLabel.text = "Exercise"
+        nameLabel.textAlignment = .center
+        nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let setsLabel = UILabel()
+        setsLabel.text = "Sets"
+        setsLabel.textAlignment = .center
+        setsLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        setsLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let repsLabel = UILabel()
+        repsLabel.text = "Reps"
+        repsLabel.textAlignment = .center
+        repsLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        repsLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackViewH = UIStackView()
+        stackViewH.addArrangedSubview(nameLabel)
+        stackViewH.addArrangedSubview(repsLabel)
+        stackViewH.addArrangedSubview(setsLabel)
+        stackViewH.axis = .horizontal
+        stackViewH.distribution = .fillEqually
+        stackViewH.alignment = .center
+        stackViewH.spacing = 10
+        stackViewV.addArrangedSubview(stackViewH)
+        
         let numEx = passedValue.exercise.count
         
         for i in 0...numEx-1{
@@ -61,9 +89,67 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
         let startButton = UIButton()
         startButton.setTitle("Start", for: .normal)
         startButton.setTitleColor(.black, for: .normal)
+        startButton.addTarget(self, action: #selector(self.startPressed(_:)), for: .touchUpInside)
         Utilities.styleHomeButton(startButton)
         
         stackViewV.addArrangedSubview(startButton)
+        
+        let deleteButton = UIButton()
+        deleteButton.setTitle("Delete", for: .normal)
+        deleteButton.setTitleColor(.black, for: .normal)
+        deleteButton.addTarget(self, action: #selector(self.deletePressed(_:)), for: .touchUpInside)
+        Utilities.styleHomeButton(deleteButton)
+        
+        stackViewV.addArrangedSubview(deleteButton)
+    }
+    
+    @IBAction func startPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Aggiungere alla lista?", message: "Sicuro di voler aggiungere questo workout alla tua cronologia", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+            //Cancel Action
+        }))
+        alert.addAction(UIAlertAction(title: "Ok",
+                                      style: .destructive,
+                                      handler: {(_: UIAlertAction!) in
+                                        let user = Auth.auth().currentUser
+                                        let db = Firestore.firestore()
+                                        db.collection("workoutsDone").addDocument(data: [
+                                            "idWorkout" : self.passedValue.id,
+                                            "idUser" : user!.uid,
+                                            "date" : Date()
+                                        ]) { err in
+                                                if let err = err {
+                                                    print("Error adding document: \(err)")
+                                                } else {
+                                                    
+                                                    print("ok")
+                                                }
+                                        }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func deletePressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Cancellare workout?", message: "Sicuro di voler cancellare questo workout dalla tua scheda", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+            //Cancel Action
+        }))
+        alert.addAction(UIAlertAction(title: "Ok",
+                                      style: .destructive,
+                                      handler: {(_: UIAlertAction!) in
+                                        let db = Firestore.firestore()
+                                        db.collection("workouts").document(self.passedValue.id).delete() { err in
+                                                if let err = err {
+                                                    print("Error adding document: \(err)")
+                                                } else {
+                                                    
+                                                    print("ok")
+                                                }
+                                        }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -87,7 +173,7 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
         stackViewH.addArrangedSubview(setsLabel)
         stackViewH.axis = .horizontal
         stackViewH.distribution = .fillEqually
-        stackViewH.alignment = .fill
+        stackViewH.alignment = .center
         stackViewH.spacing = 10
 
         

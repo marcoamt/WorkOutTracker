@@ -9,7 +9,21 @@
 import Foundation
 
 struct Workout: Codable{
+    var id: String = ""
     var name: String
     var descrizione: String
     var exercise: [Exercise]
+    
+    init(id: String, name: String, descrizione: String, exercise: [Exercise]) {
+        self.id = id
+        self.name = name
+        self.descrizione = descrizione
+        self.exercise = exercise
+    }
+    
+    init(name: String, descrizione: String, exercise: [Exercise]) {
+        self.name = name
+        self.descrizione = descrizione
+        self.exercise = exercise
+    }
 }
