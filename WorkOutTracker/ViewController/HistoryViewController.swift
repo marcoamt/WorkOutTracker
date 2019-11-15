@@ -28,7 +28,7 @@ class HistoryViewController: UIViewController {
         
         self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100.0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40.0).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100.0).isActive = true
         

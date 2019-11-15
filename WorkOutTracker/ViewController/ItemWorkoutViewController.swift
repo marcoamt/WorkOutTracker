@@ -33,7 +33,7 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
         
         self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100.0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40.0).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100.0).isActive = true
         
@@ -87,7 +87,7 @@ class ItemWorkoutViewController: UIViewController, UITextFieldDelegate {
         }
         
         let startButton = UIButton()
-        startButton.setTitle("Start", for: .normal)
+        startButton.setTitle("Just Done", for: .normal)
         startButton.setTitleColor(.black, for: .normal)
         startButton.addTarget(self, action: #selector(self.startPressed(_:)), for: .touchUpInside)
         Utilities.styleHomeButton(startButton)

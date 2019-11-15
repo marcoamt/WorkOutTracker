@@ -32,6 +32,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
         Utilities.styleAddTextField(workoutName)
@@ -41,9 +43,9 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         
         self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20.0).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 300.0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 280.0).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150.0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120.0).isActive = true
         
         stackViewV = UIStackView()
         stackViewV.axis = .vertical
@@ -118,30 +120,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         
         performSegue(withIdentifier: "unwindToListWO", sender: self)
     }
-    
-
-    
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "unwindToListWO" {
-            let woName = workoutName.text
-            let c = nameEntryArray.count
-            
-            var ex: [Exercise] = []
-            for i in 0...c-1{
-                let sets = Int(setsEntryArray[i].text ?? "") ?? 0
-                let reps = Int(repsEntryArray[i].text ?? "") ?? 0
-                ex.append(Exercise(name: nameEntryArray[i].text!, reps: reps, sets: sets))
-            }
-            
-            let newWorkout = Workout(name: woName!, descrizione: "desc", exercise: ex)
-            if let destinationVC = segue.destination as? WorkoutsViewController {
-                destinationVC.wo.append(newWorkout)
-            }
-        }
-    }*/
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -225,5 +203,16 @@ extension Dictionary {
             dict[selectKey(element)] = element
         }
         return dict
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:   #selector(UIViewController.dismissKeyboard))
+      tap.cancelsTouchesInView = false
+      view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+       view.endEditing(true)
     }
 }
